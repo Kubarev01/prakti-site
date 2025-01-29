@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,140 +8,145 @@
     <title>Калькулятор</title>
 
 </head>
+
 <body>
     <h2>Добро пожаловать на практическую Карагуловой Анастасии и Кубарева Егора</h2>
     <h3>Калькулятор</h3>
     <nav>
-        <a class= "next" href="./index.html">
+        <a class="next" href="./index.html">
             <ul>перейти на первое задание</ul>
         </a>
-        
-        <a class= "next" href="./triangle.html">
+
+        <a class="next" href="./triangle.html">
             <ul>перейти на второе задание</ul>
         </a>
 
     </nav>
 
     <div class="container">
-       
-    <div class="calc-cointainer">
-        <div style="display: flex; width: auto;;"></div>
-        <div style="display: flex; width: auto;"></div>
-        <div style="display: flex; width: auto;"></div>
-        
-        <div class="display">
-            <p class="recent"></p>
-            <h2 class="active">1</h2>
+
+        <div class="calc-cointainer">
+            
+            <div class="display">
+                <p class="recent"></p>
+                <h2 class="active">1</h2>
+            </div>
+            <div class="grid-container">
+                <a class="calc-button top-button">AC</a>
+                <a class="calc-button top-button">+/-</a>
+                <a class="calc-button top-button">%</a>
+                <a class="calc-button side-button">/</a>
+
+
+                <a class="calc-button">7</a>
+                <a class="calc-button">8</a>
+                <a class="calc-button">9</a>
+                <a class="calc-button side-button">x</a>
+
+                <a class="calc-button">4</a>
+                <a class="calc-button">5</a>
+                <a class="calc-button">6</a>
+                <a class="calc-button side-button">-</a>
+
+                <a class="calc-button">1</a>
+                <a class="calc-button">2</a>
+                <a class="calc-button">3</a>
+                <a class="calc-button side-button">+</a>
+
+                <a class="calc-button">+/-</a>
+                <a class="calc-button">0</a>
+                <a class="calc-button">.</a>
+                <a class="calc-button side-button">=</a>
+            </div>
+
+
         </div>
-        
-       <a class="calc-button top-button">AC</a>
-       <a class="calc-button top-button">+/-</a>
-       <a class="calc-button top-button">%</a>
-       <a class="calc-button side-button">/</a>
-  
 
-       <a class="calc-button">7</a>
-       <a class="calc-button">8</a>
-       <a class="calc-button">9</a>
-       <a class="calc-button side-button">x</a>
-
-       <a class="calc-button">4</a>
-       <a class="calc-button">5</a>
-       <a class="calc-button">6</a>
-       <a class="calc-button side-button">-</a>
-       
-       <a class="calc-button">1</a>
-       <a class="calc-button">2</a>
-       <a class="calc-button">3</a>
-       <a class="calc-button side-button">+</a>
-       
-       <a class="calc-button">+/-</a>
-       <a class="calc-button">0</a>
-       <a class="calc-button">.</a>
-       <a class="calc-button side-button">=</a>
 
     </div>
-    
-
-</div>
-   
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const displayRecent = document.querySelector('.display .recent');
-        const displayActive = document.querySelector('.display .active');
-        const buttons = document.querySelectorAll('.calc-button');
-
-        let currentInput = '';
-        let previousInput = '';
-        let operation = null;
 
 
-        
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const displayRecent = document.querySelector('.display .recent');
+            const displayActive = document.querySelector('.display .active');
+            const buttons = document.querySelectorAll('.calc-button');
 
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                const value = this.textContent;
 
-                if (currentInput.length>7){
-                    document.querySelector("active").css("font-size:18px")
-                }
 
-                if (value === 'AC') {
-                    currentInput = '';
-                    previousInput = '';
-                    operation = null;
-                    updateDisplay();
-                } else if (value === '+/-') {
-                    currentInput = (parseFloat(currentInput) * -1).toString();
-                    updateDisplay();
-                } else if(value==='%'){
-                    currentInput = (parseFloat(currentInput)/100).toString();
-                    updateDisplay();
-                }
-                 else if (value === '=') {
-                    if (operation && previousInput !== '' && currentInput !== '') {
-                        currentInput = calculate(previousInput, currentInput, operation).toString();
+            let currentInput = '';
+            let previousInput = '';
+            let operation = null;
+
+
+
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const value = this.textContent;
+
+
+                    if (value === 'AC') {
+                        currentInput = '';
                         previousInput = '';
                         operation = null;
                         updateDisplay();
-                    }
-                } else if (['+', '-', 'x', '/','%'].includes(value)) {
-                    if (currentInput !== '') {
-                        if (previousInput !== '') {
-                            currentInput = calculate(previousInput, currentInput, operation).toString();
-                        }
-                        previousInput = currentInput;
-                        currentInput = '';
-                        operation = value;
+                    } else if (value === '+/-') {
+                        currentInput = (parseFloat(currentInput) * -1).toString();
+                        updateDisplay();
+                    } else if (value === '%') {
+                        currentInput = (parseFloat(currentInput) / 100).toString();
                         updateDisplay();
                     }
-                } else {
-                    currentInput += value;
-                    updateDisplay();
-                }
+                    else if (value === '=') {
+                        if (operation && previousInput !== '' && currentInput !== '') {
+                            currentInput = calculate(previousInput, currentInput, operation).toString();
+                            previousInput = '';
+                            operation = null;
+                            updateDisplay();
+                        }
+                    } else if (['+', '-', 'x', '/', '%'].includes(value)) {
+                        if (currentInput !== '') {
+                            if (previousInput !== '') {
+                                currentInput = calculate(previousInput, currentInput, operation).toString();
+                            }
+                            previousInput = currentInput;
+                            currentInput = '';
+                            operation = value;
+                            updateDisplay();
+                        }
+                    } else {
+
+                        if (currentInput.length > 8) {
+
+                        } else {
+                            currentInput += value;
+                            updateDisplay();
+                        }
+                    }
+                });
             });
-        });
 
-        function updateDisplay() {
-            displayActive.textContent = currentInput || '0';
-            displayRecent.textContent = previousInput + (operation ? ' ' + operation : '');
-        }
-
-        n2===0&& alert("На ноль делить нельзя!")       
-        function calculate(num1, num2, op) {
-            const n1 = parseFloat(num1);
-            const n2 = parseFloat(num2);
-            switch (op) {
-                case '+': return n1 + n2;
-                case '-': return n1 - n2;
-                case 'x': return n1 * n2;
-                case '/': return n1 / n2;
-                default: return n2;
+            function updateDisplay() {
+                displayActive.textContent = currentInput || '0';
+                displayRecent.textContent = previousInput + (operation ? ' ' + operation : '');
             }
-        }
-    });
-</script>
-       
+
+            n2 === 0 && alert("На ноль делить нельзя!")
+            function calculate(num1, num2, op) {
+                const n1 = parseFloat(num1);
+                const n2 = parseFloat(num2);
+                switch (op) {
+                    case '+': return n1 + n2;
+                    case '-': return n1 - n2;
+                    case 'x': return n1 * n2;
+                    case '/': return Math.round(n1 / n2);
+                    default: return n2;
+                }
+            }
+        });
+    </script>
+
 </body>
+
 </html>
