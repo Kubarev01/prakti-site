@@ -1,0 +1,141 @@
+body{
+    text-align: center;
+    margin: 50px;
+    background-color: #8c8989;
+    color:#fff;
+
+}
+
+button{
+    margin: 35px;
+    text-align: center;
+    border-radius: 18px;
+    background-color: aquamarine;
+    padding: 10px;
+    width:100px;
+    
+    height: 35px;
+}
+
+button:hover{
+    background-color:  rgb(88, 184, 152) ;
+}
+
+.red{
+    background-color:red ;
+    color:#fff
+}
+.red:hover{
+    background-color: rgb(150, 36, 36);
+}
+
+ul{
+    display: inline-block;
+    padding: 10px;
+    width: 250px;
+    text-align: center;
+    background-color: rgb(93, 123, 186);
+    border: 1px solid black;
+    border-radius: 18px;
+}
+a{
+    text-decoration: none;
+    color:#fff;
+
+    
+}
+
+
+
+input{
+    padding: 10px;
+    background-color: gray;
+    border-radius: 18px;
+    color:white;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+input:focus{
+    border: 3px solid black;
+}
+
+.cointainer{
+    display: inline;
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+    margin-left: 100px;
+}
+.calc-cointainer{
+    background-color: black;
+    text-align: center;
+    justify-content: center;
+    padding: 30px;
+    padding-top: 30px;
+    width: 400px;
+    height: 550px;
+    background-color: black;
+    border-radius: 18px;
+   
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    margin: 10px;
+    margin-right: 0;
+    margin-left: 350px;
+    grid-row-gap:11px;
+  }
+
+  .delete-ico{
+    width: 45px;
+    
+  }
+
+
+
+  .calc-button{
+    margin-left: 10px;
+    background-color: #4a4949;
+    border-radius: 18px;
+    width:75px;
+    color:white;
+    border-radius: 45px;
+    font-size: 34px;
+    text-align: center;
+    padding-top: 20px;
+    justify-content: center;
+
+}
+
+.calc-button:hover{
+    opacity: 0.66;
+
+}
+
+.side-button{
+    background-color: #e9ab26;
+}
+
+
+.top-button{
+    background-color: #acabab;
+}
+
+.display{
+    display: block;
+    width: 100%;
+    justify-content: end;
+}
+
+.recent{
+    color: rgba(135, 134, 134, 0.8) !important;
+    font-size: 20px;
+    height: 30px;
+}
+.active{
+    font-size: 34px;
+}
