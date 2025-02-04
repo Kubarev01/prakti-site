@@ -49,6 +49,11 @@
             const a = parseFloat(document.getElementById('sideA').value);
             const b = parseFloat(document.getElementById('sideB').value);
             const c = parseFloat(document.getElementById('sideC').value);
+            
+           
+            if (String(a).length> 10 || String(b).length>10 || String(c).length){
+                alert("Слишком длинное число");
+            }
 
             
             if (isNaN(a) || isNaN(b) || isNaN(c)) {
